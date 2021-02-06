@@ -1,27 +1,22 @@
-// Функция, возвращающая случайное целое число из переданного диапазона включительно
-const getNumbers = (min, max) => {
-  if (min >= max) {
-    return 'Ошибка. Пожалуйста, введите другое значение. Минимальное число должно быть меньше максимального';
-  }  else  {
-    if (min >= 0 && max >= 0) {
-      return Math.trunc(Math.random() * (max - min + 1) + min);
-    }
-    return'Ошибка. Пожалуйста, введите число от 0 и больше';
-  }
-}
+'use strict';
 
-getNumbers(2, 8);
+// Источник: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// Функция, возвращающая случайное целое число из переданного диапазона включительно
+const getRandomInt = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  if (max <= min || min < 0 || max < 0) {
+    throw 'Ошибка. Пожалуйста, число от 0 и больше. Минимальное число должно быть меньше максимального';
+  }
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+getRandomInt(0, 3);
 
 // Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно
-const getCoordinates = (firstCoordinate, secondCoordinate, lengthCoorinates) => {
-  if (firstCoordinate >= secondCoordinate) {
-    return 'Ошибка. Пожалуйста, введите другое значение. Минимальное число должно быть меньше максимального';
-  }  else {
-    if (firstCoordinate >= 0 && secondCoordinate >= 0) {
-      return Number((Math.random() * (secondCoordinate - firstCoordinate + 1) + firstCoordinate).toFixed(lengthCoorinates));
-    }
-    return 'Ошибка. Пожалуйста, введите число от 0 и больше';
+const getRandomFloat = (minNumb, maxNumb, simbolsAfterComma) => {
+  if (maxNumb <= minNumb || minNumb < 0 || maxNumb < 0) {
+    throw 'Ошибка. Пожалуйста, число от 0 и больше. Минимальное число должно быть меньше максимального';
   }
+  return (Math.random() * (minNumb - maxNumb) + maxNumb).toFixed(simbolsAfterComma);
 }
-
-getCoordinates(0.8, 63, 2);
+getRandomFloat(0, 2, 3);
