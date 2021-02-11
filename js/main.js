@@ -127,8 +127,8 @@ const createPromo = () => {
 const similarPromo = (newArray) => {
   for (let i = 0; i <= SIMILAR_COUNT; i++) {
     newArray[i] = createPromo();
-      }
-      return newArray;
+  }
+  return newArray;
 }
 
 similarPromo();
