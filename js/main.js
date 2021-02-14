@@ -25,7 +25,21 @@ const TYPES = [
   'bungalow',
 ];
 
-const CHECK_TIME = [
+const ROOMS = [
+  '1',
+  '2',
+  '3',
+  '100',
+];
+
+const GUESTS = [
+  '1',
+  '2',
+  '3',
+  'не для гостей',
+];
+
+const CHECK_TIMES = [
   '12:00',
   '13:00',
   '14:00',
@@ -48,10 +62,10 @@ const PHOTOS = [
 
 const MIN_PRICE = 100;
 const MAX_PRICE = 20000;
-const MIN_ROOMS = 1;
-const MAX_ROOMS = 4;
-const MIN_GUESTS = 1;
-const MAX_GUESTS = 6;
+// const MIN_ROOMS = 1;
+// const MAX_ROOMS = 4;
+// const MIN_GUESTS = 1;
+// const MAX_GUESTS = 6;
 
 const X_MIN = 35.65000;
 const X_MAX = 35.70000;
@@ -89,7 +103,7 @@ let getShuffle = (array) => {
   return newArray.slice(getRandomInt(0, array.length-1));
 }
 
-// // Функция, возвращающая массив случайной длины из значений массива.
+// Функция, возвращающая массив случайной длины из значений массива.
 // const getRandomArray = (newArray) => {
 //   const randomArrayIndex = getRandomInt(0, newArray.length - 1);
 //   shuffle(newArray);
@@ -97,8 +111,8 @@ let getShuffle = (array) => {
 // };
 
 const createPromo = () => {
-  let x = getRandomFloat(X_MIN, X_MAX, 5);
-  let y = getRandomFloat(Y_MIN, Y_MAX, 5);
+  const x = getRandomFloat(X_MIN, X_MAX, 5);
+  const y = getRandomFloat(Y_MIN, Y_MAX, 5);
   return {
     author: {
       avatar: 'img/avatars/user0' + getRandomInt(1, 8) + '.png',
@@ -108,10 +122,10 @@ const createPromo = () => {
       address: Number(x) + ', ' + Number(y),
       price: getRandomInt(MIN_PRICE, MAX_PRICE),
       type: TYPES[getRandomInt(0, TYPES.length - 1)],
-      rooms: getRandomInt(MIN_ROOMS, MAX_ROOMS),
-      guests: getRandomInt(MIN_GUESTS, MAX_GUESTS),
-      checkin: CHECK_TIME[getRandomInt(0, CHECK_TIME.length - 1)],
-      checkout: CHECK_TIME[getRandomInt(0, CHECK_TIME.length - 1)],
+      rooms: ROOMS[getRandomInt(0, ROOMS.length - 1)],
+      guests: GUESTS[getRandomInt(0, GUESTS.length - 1)],
+      checkin: CHECK_TIME[getRandomInt(0, CHECK_TIMES.length - 1)],
+      checkout: CHECK_TIME[getRandomInt(0, CHECK_TIMES.length - 1)],
       features: getShuffle(FEATURES),
       description: DESCRIPTIONS[getRandomInt(0, DESCRIPTIONS - 1)],
       photos: getShuffle(PHOTOS),
@@ -124,11 +138,11 @@ const createPromo = () => {
 };
 
 // const similarPromo = new Array(SIMILAR_COUNT).fill(null).map(() => createPromo())
-const similarPromo = (newArray) => {
+const createSimilarPromo = (newArray) => {
   for (let i = 0; i <= SIMILAR_COUNT; i++) {
     newArray[i] = createPromo();
   }
   return newArray;
 }
 
-similarPromo();
+createSimilarPromo();
