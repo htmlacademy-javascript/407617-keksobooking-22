@@ -1,2 +1,2 @@
-import {createSimilarPromo} from './data.js';
-createSimilarPromo();
+import './data.js';
+import './card.js';
