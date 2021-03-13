@@ -29,5 +29,4 @@ const createPromo = () => {
 };
 
 const createPromoList = new Array(SIMILAR_COUNT).fill(null).map(() => createPromo());
-
 export {createPromoList};
