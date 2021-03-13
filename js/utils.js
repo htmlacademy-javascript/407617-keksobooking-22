@@ -7,7 +7,7 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const getRandomFloat = (min, max, decimals) => {
+const getRandomFloat = (min, max, decimals = 1) => {
   if (max <= min || min < 0) {
     throw 'Ошибка. Пожалуйста, введите число от 0 и больше. Минимальное число должно быть меньше максимального';
   }
