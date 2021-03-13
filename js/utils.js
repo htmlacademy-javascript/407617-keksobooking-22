@@ -12,8 +12,6 @@ const getRandomFloat = (min, max, decimals = 1) => {
     throw 'Ошибка. Пожалуйста, введите число от 0 и больше. Минимальное число должно быть меньше максимального';
   }
   return (Math.random() * (min - max) + max).toFixed(decimals);
-  // const result = Math.random() * (max - min) + min;
-  // return result.toFixed(decimals);
 }
 
 const getRandomArrayValues = (arrayName) => {
