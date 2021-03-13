@@ -1,11 +1,11 @@
 const SIMILAR_COUNT = 10;
 
 const TITLES = [
-  'Хостел на окраине "Смотри в оба"',
-  'Квартира в ЖК "Вестибюль"',
-  'Палатка в палаточном городке "Freedom',
-  'Дом "Самый"',
-  'Идокопаский дворец',
+  '"Смотри в оба"',
+  '"Вестибюль"',
+  '"Freedom',
+  '"Самый"',
+  'Идокопасский дворец',
 ];
 
 const DESCRIPTIONS = [
@@ -23,19 +23,20 @@ const TYPES = [
   'bungalow',
 ];
 
-const ROOMS = [
-  '1',
-  '2',
-  '3',
-  '100',
-];
+const ROOMS = {
+  min: 1,
+  max: 100,
+};
 
-const GUESTS = [
-  '1',
-  '2',
-  '3',
-  'не для гостей',
-];
+const GUESTS = {
+  min: 1,
+  max: 27,
+};
+
+const AVATAR = {
+  min: 1,
+  max: 8,
+};
 
 const CHECK_TIMES = [
   '12:00',
@@ -58,12 +59,14 @@ const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
 ];
 
-const MIN_PRICE = 100;
-const MAX_PRICE = 20000;
+const PRICE = {
+  min: 100,
+  max: 20000,
+};
 
 const X_MIN = 35.65000;
 const X_MAX = 35.70000;
 const Y_MIN = 139.70000;
 const Y_MAX = 139.80000;
 
-export {SIMILAR_COUNT, TITLES, DESCRIPTIONS, TYPES, ROOMS, GUESTS, CHECK_TIMES, FEATURES, PHOTOS, MIN_PRICE, MAX_PRICE, X_MIN, X_MAX, Y_MIN, Y_MAX};
+export {SIMILAR_COUNT, TITLES, DESCRIPTIONS, TYPES, ROOMS, GUESTS, AVATAR, CHECK_TIMES, FEATURES, PHOTOS, PRICE, X_MIN, X_MAX, Y_MIN, Y_MAX};
